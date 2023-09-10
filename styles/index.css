@@ -26,6 +26,15 @@
     color: var(--background) !important;
 }
 
+.navbar a {
+    color: var(--background);
+    font-size: 0.9rem;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
 .list li {
     list-style: none;
     gap: 0.75rem;
@@ -47,6 +56,16 @@
     align-items: end;
     margin-top: 5;
     padding: 0 5;
+}
+
+.current-credits-container {
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+    align-items: center;
+    padding: 2rem;
+    margin: 0 auto;
+    max-width: 45rem;
 }
 
 .main {
@@ -82,6 +101,15 @@
         align-items: center;
     }
 
+    .current-credits-container {
+        gap: 4rem;
+        max-width: 100%;
+    }
+
+    .current-credits-container input {
+        max-width: 8rem;
+    }
+
     label {
         font-size: 1rem;
     }
@@ -91,7 +119,7 @@
     }
 
     .main select, .main input {
-        padding: 0.2rem;
+        padding: 0.1rem;
         font-size: 0.8rem;
     }
     .main select {
