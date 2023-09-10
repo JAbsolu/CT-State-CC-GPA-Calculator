@@ -1,3 +1,12 @@
+:root {
+    --background: #2D3185;
+    --accent: #d4dcee;
+    --white: #ffffff;
+    --black: #000000;
+    --p-size: 1rem;
+    --h1-size: 2rem;
+}
+
 * {
     margin: 0;
     padding: 0;
