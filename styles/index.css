@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+p {
+    font-size: 1rem;
+}
+
+.logo{
+    margin: 0;
+    padding: 0;
+}
+
+.gpaFlex {
+    background: #fff;
+    color: #2D3185;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.gpaBlock {
+    display: block !important;
+}
+
+.list {
+    text-decoration: none;
+    list-style: none;
+    gap: 0.75rem;
+}
+
+.list li:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.main {
+    max-width: 50rem;
+    margin: 3rem auto 0;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 400;
+    background-color: #d4dcee;
+    padding: 3rem
+}
+
+.main input, select {
+    font-size: 1rem;
+    padding: 0.5rem;
+    max-width: 10rem !important;
+}
+
+.main .gpaCredits {
+    max-width: 3rem !important;
+}
+
+@media (max-width: 650px) {
+    li {
+        font-size: 1rem;
+    }
+
+    label {
+        font-size: 1rem;
+    }
+
+    .main {
+        padding: 1rem 2rem;
+    }
+
+    .main select, .main input {
+        padding: 0.4rem;
+        font-size: 0.8rem;
+    }
+    .main select {
+        margin-left: 1rem;
+    }
+
+
+.main .gpaCredits {
+    max-width: 10rem !important;
+    margin-top: 0.4rem;
+}
+
+    h1 {
+        font-size: 1.2rem;
+    }
+    .gpaFlex {
+        gap: 1rem;
+    }
+
+    .gpaFlex h1 {
+        padding-left: 1rem;
+    }
+
+    .logo {
+        margin: 0 auto;
+    } 
+}
