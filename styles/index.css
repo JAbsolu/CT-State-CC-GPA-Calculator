@@ -86,6 +86,10 @@
     max-width: 10rem !important;
 }
 
+.show {
+    display: block;
+}
+
 @media (max-width: 650px) {
     .logo {
         width: 200px !important;
@@ -127,9 +131,14 @@
         margin-left: 1rem;
     }
 
+    .gpaFormDiv {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+    }
 
     .main .gpaCredits {
-        max-width: 10rem !important;
         margin-top: 0.4rem;
     }
 
