@@ -158,3 +158,18 @@
         margin: 0 auto;
     } 
 }
+
+@media (min-width: 1800px) {
+    .semeseter-gpa-container {
+        margin-top: 4rem;
+    }
+
+    .current-credits-container {
+        min-width: 50rem;
+        padding: 2.5rem 1rem;
+    }
+
+    .main {
+        padding-bottom: 19.5rem;
+    }
+}
