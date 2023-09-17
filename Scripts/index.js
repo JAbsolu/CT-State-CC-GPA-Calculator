@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
         `
         rowCount += 1
         gpaFormDiv.innerHTML += newRow
-    
+
         console.log("class row added")
     }
     addRow.addEventListener('click', addClassRow); 
@@ -56,15 +56,8 @@ document.addEventListener('DOMContentLoaded', function() {
     calculate.addEventListener('click', function(event) {
       event.preventDefault(); // Prevent the form from submitting
   
-      let totalPoints = 0;
       let totalCredits = 0;
-      let totalCourses = 0;
-
-      course.forEach(function(course) {
-        totalCourses += 1;
-      })
-
-      alert(totalCourses)
+      let totalPoints = 0;
   
       // Iterate through the grade elements
       gradeElements.forEach(function(gradeElement, index) {
@@ -76,6 +69,8 @@ document.addEventListener('DOMContentLoaded', function() {
           totalCredits += creditsValue;
         }
       });
+
+      gpaScore.textContent = parseFloat(totalPoints / totalCredits).toFixed(2)
   
       if (totalCredits > 0) {
         var gpa = totalPoints / totalCredits;
