@@ -12,6 +12,7 @@
     margin: 0;
     padding: 0;
     font-family: inherit;
+    font-size: 0.99rem;
 }
 
 .bg-primary-custom {
@@ -85,6 +86,10 @@
     max-width: 10rem !important;
 }
 
+.show {
+    display: block;
+}
+
 @media (max-width: 650px) {
     .logo {
         width: 200px !important;
@@ -126,9 +131,14 @@
         margin-left: 1rem;
     }
 
+    .gpaFormDiv {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+    }
 
     .main .gpaCredits {
-        max-width: 10rem !important;
         margin-top: 0.4rem;
     }
 
@@ -147,4 +157,19 @@
     .logo {
         margin: 0 auto;
     } 
+}
+
+@media (min-width: 1800px) {
+    .semeseter-gpa-container {
+        margin-top: 4rem;
+    }
+
+    .current-credits-container {
+        min-width: 50rem;
+        padding: 2.5rem 1rem;
+    }
+
+    .main {
+        padding-bottom: 19.5rem;
+    }
 }
