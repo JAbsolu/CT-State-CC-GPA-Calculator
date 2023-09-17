@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       for (let i = 0; i < course.length; i+=1) {
         let credValue = creditsElements[i].value
-        course[i].value === "" && credValue == "" ? 
+        course[i].value === "" && credValue === "" ? 
         classError.classList.remove('d-none') 
         : classError.classList.add('d-none')
       }
