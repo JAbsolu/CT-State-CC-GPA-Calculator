@@ -78,7 +78,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       });
 
-      gpaScore.textContent = parseFloat(totalPoints / totalCredits).toFixed(2)
+      //Check t0 see if GPA is a number, if not set new score to be 0.00
+      let newGPA = parseFloat(totalPoints / totalCredits).toFixed(2)
+      if (!isNaN(newGPA)) {
+        gpaScore.textContent = newGPA;
+      } else {
+        gpaScore.textContent = parseFloat(0).toFixed(2)
+      }
+
       localStorage.setItem("semester GPA", gpaScore.textContent)
 
   
@@ -92,6 +99,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     let savedScore = localStorage.getItem('semester GPA');
-    gpaScore.textContent = parseFloat(savedScore).toFixed(2);
 
+    if (isNaN(savedScore)) {
+      gpaScore.textContent = parseFloat(0).toFixed(2);
+    } else {
+      gpaScore.textContent = parseFloat(savedScore).toFixed(2);
+    }
 });
