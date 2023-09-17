@@ -51,31 +51,32 @@
       </div>
    </div>
    <div class="main gpaFlex bg-light">
-      <form action="">
+      <form action="" id="prevent-default">
          <div class="gpaFormDiv">
-            <label for="class">Class 1</label>
-            <input type="text" name="class" placeholder="Course">
-            <label for="grade">Grade</label>
-            <select id="grade" name="grade">
-               <option value="4">A</option>
-               <option value="3.7">A--</option>
-               <option value="3.3">B+</option>
-               <option value="3">B</option>
-               <option value="2.7">B-</option>
-               <option value="2.3">C+</option>
-               <option value="2">C</option>
-               <option value="1.7">C-</option>
-               <option value="1.3">D+-</option>
-               <option value="1">D</option>
-               <option value="0.7">D-</option>
-               <option value="0">F</option>
-            </select>
-            <span>
-               <label for="credits">Credits</label>
-               <input type="text" name="credits" class="gpaCredits">
-            </span>
-            <br />
-            <br />
+            <div class="addCourseRow">
+               <label for="class">Class 1</label>
+               <input type="text" name="class" placeholder="Course">
+               <label for="grade">Grade</label>
+               <select id="grade" name="grade">
+                  <option value="4">A</option>
+                  <option value="3.7">A--</option>
+                  <option value="3.3">B+</option>
+                  <option value="3">B</option>
+                  <option value="2.7">B-</option>
+                  <option value="2.3">C+</option>
+                  <option value="2">C</option>
+                  <option value="1.7">C-</option>
+                  <option value="1.3">D+-</option>
+                  <option value="1">D</option>
+                  <option value="0.7">D-</option>
+                  <option value="0">F</option>
+               </select>
+               <span>
+                  <label for="credits">Credits</label>
+                  <input type="text" name="credits" class="gpaCredits">
+               </span>
+            </div>
+            <br>
             <label for="class">Class 2</label>
             <input type="text" name="class" placeholder="Course">
             <label for="grade">Grade</label>
@@ -145,98 +146,25 @@
             </span>
             <br />
             <br />
-            <label for="class">Class 5</label>
-            <input type="text" name="class" placeholder="Course">
-            <label for="grade">Grade</label>
-            <select id="grade" name="grade">
-               <option value="4">A</option>
-               <option value="3.7">A--</option>
-               <option value="3.3">B+</option>
-               <option value="3">B</option>
-               <option value="2.7">B-</option>
-               <option value="2.3">C+</option>
-               <option value="2">C</option>
-               <option value="1.7">C-</option>
-               <option value="1.3">D+-</option>
-               <option value="1">D</option>
-               <option value="0.7">D-</option>
-               <option value="0">F</option>
-            </select>
-            <span>
-               <label for="credits">Credits</label>
-               <input type="text" name="credits" class="gpaCredits">
-            </span>
-            <br />
-            <br />
-            <label for="class">Class 6</label>
-            <input type="text" name="class" placeholder="Course">
-            <label for="grade">Grade</label>
-            <select id="grade" name="grade">
-               <option value="4">A</option>
-               <option value="3.7">A--</option>
-               <option value="3.3">B+</option>
-               <option value="3">B</option>
-               <option value="2.7">B-</option>
-               <option value="2.3">C+</option>
-               <option value="2">C</option>
-               <option value="1.7">C-</option>
-               <option value="1.3">D+-</option>
-               <option value="1">D</option>
-               <option value="0.7">D-</option>
-               <option value="0">F</option>
-            </select>
-            <span>
-               <label for="credits">Credits</label>
-               <input type="text" name="credits" class="gpaCredits">
-            </span>
-            <br />
-            <br />
-            <label for="class">Class 7</label>
-            <input type="text" name="class" placeholder="Course">
-            <label for="grade">Grade</label>
-            <select id="grade" name="grade">
-               <option value="4">A</option>
-               <option value="3.7">A--</option>
-               <option value="3.3">B+</option>
-               <option value="3">B</option>
-               <option value="2.7">B-</option>
-               <option value="2.3">C+</option>
-               <option value="2">C</option>
-               <option value="1.7">C-</option>
-               <option value="1.3">D+-</option>
-               <option value="1">D</option>
-               <option value="0.7">D-</option>
-               <option value="0">F</option>
-            </select>
-            <span>
-               <label for="credits">Credits</label>
-               <input type="text" name="credits" class="gpaCredits">
-            </span>
-            <br />
-            <br />
-            <label for="class">Class 8</label>
-            <input type="text" name="class" placeholder="Course">
-            <label for="grade">Grade</label>
-            <select id="grade" name="grade">
-               <option value="4">A</option>
-               <option value="3.7">A--</option>
-               <option value="3.3">B+</option>
-               <option value="3">B</option>
-               <option value="2.7">B-</option>
-               <option value="2.3">C+</option>
-               <option value="2">C</option>
-               <option value="1.7">C-</option>
-               <option value="1.3">D+-</option>
-               <option value="1">D</option>
-               <option value="0.7">D-</option>
-               <option value="0">F</option>
-            </select>
-            <span>
-               <label for="credits">Credits</label>
-               <input type="text" name="credits" class="gpaCredits">
-            </span>
-            <br />
-            <br />
+
+         </div>
+         <div align="center">
+            <button class="btn bg-primary-custom text-light btn-add-row" onclick="{{console.log(45)}}">
+               Add class row
+               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                  class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                  <path
+                     d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
+               </svg>
+            </button>
+            <button class="btn bg-primary-custom text-light btn-add-row" onclick="{{console.log(45)}}">
+               Calculate GPA
+               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                  class="bi bi-calculator-fill" viewBox="0 0 16 16">
+                  <path
+                     d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm2 .5v2a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 0-.5-.5h-7a.5.5 0 0 0-.5.5zm0 4v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5zM4.5 9a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zM4 12.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5zM7.5 6a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zM7 9.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5zm.5 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zM10 6.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5zm.5 2.5a.5.5 0 0 0-.5.5v4a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 0-.5-.5h-1z" />
+               </svg>
+            </button>
          </div>
       </form>
    </div>
@@ -274,6 +202,7 @@
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
       crossorigin="anonymous"></script>
+   <script src="./Scripts/index.js"></script>
 </body>
 
 </html>

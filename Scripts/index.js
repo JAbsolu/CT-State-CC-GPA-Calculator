@@ -20,8 +20,9 @@ const currentGpa = document.getElementsByClassName("current-gpa");
 const totalExistingCredits = document.getElementsByClassName("current-total-credits");
 
 // GET CURRENT CREDITS & GPA
-const currentGpaVal = currentGpaEl.value();
-const totalCredits = totalExistingCredits.value();
+//  LINE 24 & 25 ERROR 
+// const currentGpaVal = currentGpaEl.value();
+// const totalCredits = totalExistingCredits.value();
 
 //GET GRADE VALUE ON SELECTION
 const getGradesVal = () => {
@@ -42,3 +43,46 @@ const getGradesVal = () => {
     alert(grade1Val)
 
 }
+// PREVENT FORM FROM RELAODING
+const form = document.querySelector('#prevent-default');
+form.addEventListener('submit', function(event) {
+    event.preventDefault();
+})
+// ADD NEW CLASS ROW
+let rowCount = 5
+const addRow = document.querySelector('.btn-add-row');
+const addClassRow = () => { 
+    const gpaFormDiv = document.querySelector('.gpaFormDiv');
+    const newRow = ` 
+    <div class="addCourseRow"> 
+        <label for="class">Class ${rowCount}</label>
+        <input type="text" name="class" placeholder="Course">
+        <label for="grade">Grade</label>
+        <select id="grade" name="grade">
+            <option value="4">A</option>
+            <option value="3.7">A--</option>
+            <option value="3.3">B+</option>
+            <option value="3">B</option>
+            <option value="2.7">B-</option>
+            <option value="2.3">C+</option>
+            <option value="2">C</option>
+            <option value="1.7">C-</option>
+            <option value="1.3">D+-</option>
+            <option value="1">D</option>
+            <option value="0.7">D-</option>
+            <option value="0">F</option>
+        </select>
+        <span>
+            <label for="credits">Credits</label>
+            <input type="text" name="credits" class="gpaCredits">
+        </span>
+    </div>
+    <br/>
+    `
+    rowCount += 1
+    gpaFormDiv.innerHTML += newRow
+
+    console.log("class row added")
+}
+addRow.addEventListener('click', addClassRow); 
+ 
