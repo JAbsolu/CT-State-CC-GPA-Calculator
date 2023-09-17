@@ -71,6 +71,8 @@ document.addEventListener('DOMContentLoaded', function() {
       });
 
       gpaScore.textContent = parseFloat(totalPoints / totalCredits).toFixed(2)
+      localStorage.setItem("semester GPA", gpaScore.textContent)
+
   
       if (totalCredits > 0) {
         var gpa = totalPoints / totalCredits;
@@ -79,4 +81,9 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('No valid grades or credits provided.');
       }
     });
-  });
+
+
+    let savedScore = localStorage.getItem('semester GPA');
+    gpaScore.textContent = savedScore;
+
+});
