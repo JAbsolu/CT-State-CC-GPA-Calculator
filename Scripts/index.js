@@ -17,32 +17,12 @@ const isRepeated6 = document.getElementsByClassName("repeated6");
 const isRepeated7 = document.getElementsByClassName("repeated7");
 const isRepeated8 = document.getElementsByClassName("repeated8");
 const currentGpa = document.getElementsByClassName("current-gpa");
+const gpaScore = document.querySelector(".gpa-score");
 const totalExistingCredits = document.getElementsByClassName("current-total-credits");
 
-// GET CURRENT CREDITS & GPA
-//  LINE 24 & 25 ERROR 
-// const currentGpaVal = currentGpaEl.value();
-// const totalCredits = totalExistingCredits.value();
-
 //GET GRADE VALUE ON SELECTION
-const getGradesVal = () => {
-    
-    let grade1Val = grade1.value;
-    let grade2Val = grade2.value;
-    let grade3Val = grade3.value;
-    let grade4Val = grade4.value;
-    let grade5Val = grade5.value;
-    let grade6Val = grade6.value;
-    let grade7Val = grade7.value;
-    let grade8Val = grade8.value;
 
-    for (let val of grade1) {
-        grade1Val = val;
-    }
 
-    alert(grade1Val)
-
-}
 // PREVENT FORM FROM RELAODING
 const form = document.querySelector('#prevent-default');
 form.addEventListener('submit', function(event) {
@@ -85,4 +65,3 @@ const addClassRow = () => {
     console.log("class row added")
 }
 addRow.addEventListener('click', addClassRow); 
- 
