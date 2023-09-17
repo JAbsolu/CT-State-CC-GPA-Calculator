@@ -6,6 +6,7 @@ const currentGpa = document.getElementsByClassName("current-gpa");
 const gpaScore = document.querySelector(".gpa-score");
 const totalExistingCredits = document.getElementsByClassName("current-total-credits");
 const calculate = document.querySelector(".calculate");
+const classError = document.querySelector(".missing-class-error");
 
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -55,6 +56,13 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add an event listener to the button
     calculate.addEventListener('click', function(event) {
       event.preventDefault(); // Prevent the form from submitting
+
+      for (let i = 0; i < course.length; i+=1) {
+        let credValue = creditsElements[i].value
+        course[i].value === "" && credValue == "" ? 
+        classError.classList.remove('d-none') 
+        : classError.classList.add('d-none')
+      }
   
       let totalCredits = 0;
       let totalPoints = 0;

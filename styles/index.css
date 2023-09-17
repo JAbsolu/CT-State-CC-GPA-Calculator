@@ -5,6 +5,7 @@
     --black: #000000;
     --p-size: 1rem;
     --h1-size: 2rem;
+    --text-red: rgb(207, 7, 7);
 }
 
 * {
@@ -25,6 +26,14 @@
 
 .text-primary-color {
     color: var(--background) !important;
+}
+
+.text-red {
+    color: var(--text-red);
+}
+
+.text-white {
+    color: var(--white);
 }
 
 .navbar a {
@@ -73,7 +82,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 2rem 0 7.2rem;
+    padding: 2rem 0 20.5rem;
 }
 
 .main input, select {
