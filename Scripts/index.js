@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <label for="grade">Grade</label>
             <select id="grade" name="grade">
                 <option value="4">A</option>
-                <option value="3.7">A--</option>
+                <option value="3.7">A-</option>
                 <option value="3.3">B+</option>
                 <option value="3">B</option>
                 <option value="2.7">B-</option>
@@ -84,6 +84,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     let savedScore = localStorage.getItem('semester GPA');
-    gpaScore.textContent = savedScore;
+    gpaScore.textContent = parseFloat(savedScore).toFixed(2);
 
 });
