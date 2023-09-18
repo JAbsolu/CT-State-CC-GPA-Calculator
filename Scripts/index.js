@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="new-course-row"> 
             <label for="class">Course ${rowCount}</label>
             <input type="text" name="course" placeholder="Course">
-            <label for="grade">Grade</label>
+            <label for="grade">&nbsp &nbsp Grade</label>
             <select class="grade" name="grade">
                 <option value="4">A</option>
                 <option value="3.7">A-</option>
