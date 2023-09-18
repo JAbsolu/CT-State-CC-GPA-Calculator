@@ -1,9 +1,10 @@
 // GET ALL COURSE SECTION FIELDS
 let course = document.querySelectorAll(".course");
-let gradeElements = document.querySelectorAll('select[name="grade"]');
+let gradeElements = document.querySelectorAll('.grade');
 let creditsElements = document.querySelectorAll('.gpaCredits');
 let existingCreds = document.querySelector(".existing-credits");
 let existingGpa = document.querySelector(".existing-gpa");
+let newCourseRow = document.querySelectorAll(".new-course-row");
 const currentGpa = document.getElementsByClassName("current-gpa");
 const gpaScore = document.querySelector(".gpa-score");
 const enteredExistingCreds = document.getElementsByClassName("current-total-credits");
@@ -12,22 +13,22 @@ const classError = document.querySelector(".missing-class-error");
 
 
 document.addEventListener('DOMContentLoaded', function() {
-    // PREVENT FORM FROM RELAODING
+    //PREVENT FORM FROM RELAODING
     const form = document.querySelector('#prevent-default');
     form.addEventListener('submit', function(event) {
         event.preventDefault();
     })
     // ADD NEW CLASS ROW
-    let rowCount = 5
+    let rowCount = course.length + 1;
     const addRow = document.querySelector('.btn-add-row');
     const addClassRow = () => { 
         const gpaFormDiv = document.querySelector('.gpaFormDiv');
         const newRow = ` 
-        <div class="addCourseRow"> 
-            <label for="class">Class ${rowCount}</label>
-            <input type="text" name="class" placeholder="Course">
+        <div class="new-course-row"> 
+            <label for="class">Course ${rowCount}</label>
+            <input type="text" name="course" placeholder="Course">
             <label for="grade">Grade</label>
-            <select id="grade" name="grade">
+            <select class="grade" name="grade">
                 <option value="4">A</option>
                 <option value="3.7">A-</option>
                 <option value="3.3">B+</option>
@@ -43,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
             </select>
             <span>
                 <label for="credits">Credits</label>
-                <input type="text" name="credits" class="gpaCredits">
+                <input type="text" name="credits" class="gpaCredit">
             </span>
         </div>
         <br/>
@@ -55,12 +56,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     addRow.addEventListener('click', addClassRow); 
 
-    // Add an event listener to the button
+    // listen for clicks on the calculate button
     calculate.addEventListener('click', function(event) {
       event.preventDefault(); // Prevent the form from submitting
 
       // Input error control
-      for (let i = 0; i < course.length; i+=1) {
+      for (let i = course.length - 1; i >= 0; i-=1) {
         let credValue = creditsElements[i].value
         course[i].value === "" || credValue === "" ?  
         classError.classList.remove('d-none') //if both course and credits onpy empty show err msf
@@ -77,15 +78,14 @@ document.addEventListener('DOMContentLoaded', function() {
         
       // Iterate through the grade elements
       gradeElements.forEach(function(gradeElement, index) {
-        var gradeValue = parseFloat(gradeElement.value);
-        var creditsValue = parseFloat(creditsElements[index].value);
+        let gradeValue = parseFloat(gradeElement.value);
+        let creditsValue = parseFloat(creditsElements[index].value);
   
         if (!isNaN(gradeValue) && !isNaN(creditsValue)) {
           totalPoints += gradeValue * creditsValue
           totalCredits += creditsValue;
         }
       });
-
 
       //Check t0 see if GPA is a number, if not set new score to be 0.00
       let newGPA = parseFloat(totalPoints / totalCredits).toFixed(2)
@@ -94,10 +94,10 @@ document.addEventListener('DOMContentLoaded', function() {
       } else {
         gpaScore.textContent = parseFloat(0).toFixed(2)
       }
+      //save the calculated gpa in local storage
+      localStorage.setItem("Estimated GPA", gpaScore.textContent)
 
-      localStorage.setItem("semester GPA", gpaScore.textContent)
-
-  
+      //test code below
       if (totalCredits > 0) {
         var gpa = totalPoints / totalCredits;
         console.log('Your GPA is:', gpa);
@@ -106,8 +106,8 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
 
-
-    let savedScore = localStorage.getItem('semester GPA');
+    //getting the gp
+    let savedScore = localStorage.getItem('Estimated GPA');
 
     if (isNaN(savedScore)) {
       gpaScore.textContent = parseFloat(0).toFixed(2);
