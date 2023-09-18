@@ -2,9 +2,11 @@
 let course = document.querySelectorAll(".course");
 let gradeElements = document.querySelectorAll('select[name="grade"]');
 let creditsElements = document.querySelectorAll('.gpaCredits');
+let existingCreds = document.querySelector(".existing-credits");
+let existingGpa = document.querySelector(".existing-gpa");
 const currentGpa = document.getElementsByClassName("current-gpa");
 const gpaScore = document.querySelector(".gpa-score");
-const totalExistingCredits = document.getElementsByClassName("current-total-credits");
+const enteredExistingCreds = document.getElementsByClassName("current-total-credits");
 const calculate = document.querySelector(".calculate");
 const classError = document.querySelector(".missing-class-error");
 
@@ -57,26 +59,33 @@ document.addEventListener('DOMContentLoaded', function() {
     calculate.addEventListener('click', function(event) {
       event.preventDefault(); // Prevent the form from submitting
 
+      // Input error control
       for (let i = 0; i < course.length; i+=1) {
         let credValue = creditsElements[i].value
-        course[i].value === "" && credValue === "" ? 
-        classError.classList.remove('d-none') 
-        : classError.classList.add('d-none')
+        course[i].value === "" || credValue === "" ?  
+        classError.classList.remove('d-none') //if both course and credits onpy empty show err msf
+        : classError.classList.add('d-none') //else hide error msg
       }
   
-      let totalCredits = 0;
-      let totalPoints = 0;
-  
+      let enteredExistingCreds = existingCreds.value || 0; //check if there is value else defaul val is 0
+      let enteredExistingGpa = existingGpa.value || 0;
+      //get the total amount of points the student already has excluding current semester points
+      let totalExistingPoints = parseFloat(enteredExistingCreds * enteredExistingGpa);
+
+      let totalCredits = parseFloat(enteredExistingCreds); //total credits including inputed current creds
+      let totalPoints = parseFloat(totalExistingPoints); //total poitns including inputed current points
+        
       // Iterate through the grade elements
       gradeElements.forEach(function(gradeElement, index) {
         var gradeValue = parseFloat(gradeElement.value);
         var creditsValue = parseFloat(creditsElements[index].value);
   
         if (!isNaN(gradeValue) && !isNaN(creditsValue)) {
-          totalPoints += gradeValue * creditsValue;
+          totalPoints += gradeValue * creditsValue
           totalCredits += creditsValue;
         }
       });
+
 
       //Check t0 see if GPA is a number, if not set new score to be 0.00
       let newGPA = parseFloat(totalPoints / totalCredits).toFixed(2)
