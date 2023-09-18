@@ -99,6 +99,31 @@
     display: block;
 }
 
+/* Super narrow screens */
+@media (max-width: 280px) {
+    * {
+        font-size: 0.685rem;
+    }
+
+    .course {
+        margin-right: 1rem;
+        margin-bottom: 0.5rem;;
+    }
+
+    .current-credits-container input {
+        max-width: 6.5rem !important;
+    }
+}
+
+/* for small screens */
+@media (max-width: 400px) {
+    .course, .gpaCredits {
+        min-width: 9.5rem;
+    }
+
+}
+
+/* FOR REGULAR MOBILE PHONES */
 @media (max-width: 650px) {
     .logo {
         width: 180px !important;
@@ -116,12 +141,12 @@
     }
 
     .current-credits-container {
-        gap: 4rem;
+        gap: 2rem;
         max-width: 100%;
     }
 
     .current-credits-container input {
-        max-width: 8rem;
+        max-width: 10rem;
     }
 
     label {
@@ -169,6 +194,7 @@
     } 
 }
 
+/* FOR WIDE SCREENS */
 @media (min-width: 1800px) {
     .semeseter-gpa-container {
         margin-top: 4rem;
