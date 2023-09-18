@@ -24,30 +24,30 @@ document.addEventListener('DOMContentLoaded', function() {
     const addClassRow = () => { 
         const gpaFormDiv = document.querySelector('.gpaFormDiv');
         const newRow = ` 
-        <div class="new-course-row"> 
-            <label for="class">Course ${rowCount}</label>
-            <input type="text" name="course" placeholder="Course">
-            <label for="grade">&nbsp &nbsp Grade</label>
-            <select class="grade" name="grade">
-                <option value="4">A</option>
-                <option value="3.7">A-</option>
-                <option value="3.3">B+</option>
-                <option value="3">B</option>
-                <option value="2.7">B-</option>
-                <option value="2.3">C+</option>
-                <option value="2">C</option>
-                <option value="1.7">C-</option>
-                <option value="1.3">D+-</option>
-                <option value="1">D</option>
-                <option value="0.7">D-</option>
-                <option value="0">F</option>
-            </select>
-            <span>
-                <label for="credits">Credits</label>
-                <input type="text" name="credits" class="gpaCredit">
-            </span>
-        </div>
-        <br/>
+        <div>
+               <label for="class">Course ${rowCount}</label>
+               <input type="text" name="class" placeholder="Course" class="course">
+               <label for="grade">Grade</label>
+               <select class="grade" name="grade">
+                  <option value="4">A</option>
+                  <option value="3.7">A-</option>
+                  <option value="3.3">B+</option>
+                  <option value="3">B</option>
+                  <option value="2.7">B-</option>
+                  <option value="2.3">C+</option>
+                  <option value="2">C</option>
+                  <option value="1.7">C-</option>
+                  <option value="1.3">D+</option>
+                  <option value="1">D</option>
+                  <option value="0.7">D-</option>
+                  <option value="0">F</option>
+               </select>
+               <span>
+                  <label for="credits">Credits</label>
+                  <input type="text" name="credits" class="gpaCredits">
+               </span>
+            </div>
+            <br>
         `
         rowCount += 1
         gpaFormDiv.innerHTML += newRow

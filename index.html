@@ -1,226 +1,231 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="icon" type="image/x-icon" href="/images/favicon.png">
-      <link rel="stylesheet" href="./styles/index.css">
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-         crossorigin="anonymous"></script>
-      <title>GPA Calculator</title>
-   </head>
-   <!-- NAV AND MOBILE MENU -->
-   <nav class="navbar navbar-expand-lg navbar-light bg-light px-3">
-      <a href="https://ctstate.edu/" target="_blank">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+   <link rel="stylesheet" href="./styles/index.css">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"></script>
+   <title>GPA Calculator</title>
+</head>
+<!-- NAV AND MOBILE MENU -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light px-3">
+   <a href="https://ctstate.edu/" target="_blank">
       <img src="images/logo.png" alt="logo" class="logo" />
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+   </a>
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse mobile-show navbar-collapse navbar" id="navbarSupportedContent">
-         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-               <a class="nav-link" href="https://ctstate.edu/" target="_blank">Home</a>
-            </li>
-            <li class="nav-item">
-               <a class="nav-link" href="https://my.ctstate.edu/" target="_blank">My CT State</a>
-            </li>
-         </ul>
+   </button>
+
+   <div class="collapse mobile-show navbar-collapse navbar" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+         <li class="nav-item active">
+            <a class="nav-link" href="https://ctstate.edu/" target="_blank">Home</a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" href="https://my.ctstate.edu/" target="_blank">My CT State</a>
+         </li>
+      </ul>
+   </div>
+</nav>
+
+<body class="bg-light">
+   <div class="pb-4 d-flex justify-content-center align-items-center">
+      <div class="semeseter=gpa-container">
+         <h4 class="pt-2">Your estimated GPA is: <span class="gpa-score fw-bold h5">0.00</span></h4>
+         <p class="missing-class-error d-none text-red"> *Please enter all courses' names and credits</p>
       </div>
-   </nav>
-   <body class="bg-light">
-      <div class="pb-4 d-flex justify-content-center align-items-center">
-         <div class="semeseter=gpa-container">
-            <h4 class="pt-2">Your estimated GPA is: <span class="gpa-score fw-bold h5">0.00</span></h4>
-            <p class="missing-class-error d-none text-red"> *Please enter all courses' names and credits</p>
-         </div>
+   </div>
+   <div class="current-credits-container bg-primary-custom text-light">
+      <div>
+         <label for="existing credits">Current credits</label>
+         <input type="text" name="existing credits" class="existing-credits">
       </div>
-      <div class="current-credits-container bg-primary-custom text-light">
-         <div>
-            <label for="existing credits">Current credits</label>
-            <input type="text" name="existing credits" class="existing-credits">
-         </div>
-         <div>
-            <label for="existing gpa">Current GPA</label>
-            <input type="text" name="existing gpa" class="existing-gpa">
-         </div>
+      <div>
+         <label for="existing gpa">Current GPA</label>
+         <input type="text" name="existing gpa" class="existing-gpa">
       </div>
-      <div class="main gpaFlex bg-light">
-         <form action="" id="prevent-default">
-            <div class="gpaFormDiv">
-               <div>
-                  <label for="class">Course 1</label>
-                  <input type="text" name="course" placeholder="Course" class="course">
-                  <label for="grade">&nbsp &nbsp Grade</label>
-                  <select class="grade" name="grade">
-                     <option value="4">A</option>
-                     <option value="3.7">A-</option>
-                     <option value="3.3">B+</option>
-                     <option value="3">B</option>
-                     <option value="2.7">B-</option>
-                     <option value="2.3">C+</option>
-                     <option value="2">C</option>
-                     <option value="1.7">C-</option>
-                     <option value="1.3">D+</option>
-                     <option value="1">D</option>
-                     <option value="0.7">D-</option>
-                     <option value="0">F</option>
-                  </select>
-                  <span>
-                  <label for="credits">Credits &nbsp</label>
+   </div>
+   <div class="main gpaFlex bg-light">
+      <form action="" id="prevent-default">
+         <div class="gpaFormDiv">
+            <div class="addCourseRow">
+               <label for="class">Course 1</label>
+               <input type="text" name="class" placeholder="Course" class="course">
+               <label for="grade">Grade</label>
+               <select class="grade" name="grade">
+                  <option value="4">A</option>
+                  <option value="3.7">A-</option>
+                  <option value="3.3">B+</option>
+                  <option value="3">B</option>
+                  <option value="2.7">B-</option>
+                  <option value="2.3">C+</option>
+                  <option value="2">C</option>
+                  <option value="1.7">C-</option>
+                  <option value="1.3">D+</option>
+                  <option value="1">D</option>
+                  <option value="0.7">D-</option>
+                  <option value="0">F</option>
+               </select>
+               <span>
+                  <label for="credits">Credits</label>
                   <input type="text" name="credits" class="gpaCredits">
-                  </span>
-               </div>
-               <br>
-               <div>
-                  <label for="class">Course 2</label>
-                  <input type="text" name="course" placeholder="Course" class="course">
-                  <label for="grade">&nbsp &nbsp Grade</label>
-                  <select class="grade" name="grade">
-                     <option value="4">A</option>
-                     <option value="3.7">A-</option>
-                     <option value="3.3">B+</option>
-                     <option value="3">B</option>
-                     <option value="2.7">B-</option>
-                     <option value="2.3">C+</option>
-                     <option value="2">C</option>
-                     <option value="1.7">C-</option>
-                     <option value="1.3">D+</option>
-                     <option value="1">D</option>
-                     <option value="0.7">D-</option>
-                     <option value="0">F</option>
-                  </select>
-                  <span>
-                  <label for="credits">Credits &nbsp</label>
-                  <input type="text" name="credits" class="gpaCredits">
-                  </span>
-               </div>
-               <br>
-               <div>
-                  <label for="class">Course 3</label>
-                  <input type="text" name="course" placeholder="Course" class="course">
-                  <label for="grade">&nbsp &nbsp Grade</label>
-                  <select class="grade" name="grade">
-                     <option value="4">A</option>
-                     <option value="3.7">A-</option>
-                     <option value="3.3">B+</option>
-                     <option value="3">B</option>
-                     <option value="2.7">B-</option>
-                     <option value="2.3">C+</option>
-                     <option value="2">C</option>
-                     <option value="1.7">C-</option>
-                     <option value="1.3">D+</option>
-                     <option value="1">D</option>
-                     <option value="0.7">D-</option>
-                     <option value="0">F</option>
-                  </select>
-                  <span>
-                  <label for="credits">Credits &nbsp</label>
-                  <input type="text" name="credits" class="gpaCredits">
-                  </span>
-               </div>
-               <br>
-               <div>
-                  <label for="class">Course 4</label>
-                  <input type="text" name="course" placeholder="Course" class="course">
-                  <label for="grade">&nbsp &nbsp Grade</label>
-                  <select class="grade" name="grade">
-                     <option value="4">A</option>
-                     <option value="3.7">A-</option>
-                     <option value="3.3">B+</option>
-                     <option value="3">B</option>
-                     <option value="2.7">B-</option>
-                     <option value="2.3">C+</option>
-                     <option value="2">C</option>
-                     <option value="1.7">C-</option>
-                     <option value="1.3">D+</option>
-                     <option value="1">D</option>
-                     <option value="0.7">D-</option>
-                     <option value="0">F</option>
-                  </select>
-                  <span>
-                  <label for="credits">Credits &nbsp</label>
-                  <input type="text" name="credits" class="gpaCredits">
-                  </span>
-               </div>
-               <br>
-               <div>
-                  <label for="class">Course 5</label>
-                  <input type="text" name="course" placeholder="Course" class="course">
-                  <label for="grade">&nbsp &nbsp Grade</label>
-                  <select class="grade" name="grade">
-                     <option value="4">A</option>
-                     <option value="3.7">A-</option>
-                     <option value="3.3">B+</option>
-                     <option value="3">B</option>
-                     <option value="2.7">B-</option>
-                     <option value="2.3">C+</option>
-                     <option value="2">C</option>
-                     <option value="1.7">C-</option>
-                     <option value="1.3">D+</option>
-                     <option value="1">D</option>
-                     <option value="0.7">D-</option>
-                     <option value="0">F</option>
-                  </select>
-                  <span>
-                  <label for="credits">Credits &nbsp</label>
-                  <input type="text" name="credits" class="gpaCredits">
-                  </span>
-               </div>
-               <br>
+               </span>
             </div>
-            <div align="center">
-               <button class="btn bg-primary-custom text-light btn-add-row">
-                  Add class row
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                     class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
-                     <path
-                        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
-                  </svg>
-               </button>
-               <button class="btn bg-primary-custom text-light btn-add-row calculate" type="submit">
-                  Calculate GPA
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                     class="bi bi-calculator-fill" viewBox="0 0 16 16">
-                     <path
-                        d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm2 .5v2a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 0-.5-.5h-7a.5.5 0 0 0-.5.5zm0 4v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5zM4.5 9a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zM4 12.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5zM7.5 6a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zM7 9.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5zm.5 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zM10 6.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5zm.5 2.5a.5.5 0 0 0-.5.5v4a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 0-.5-.5h-1z" />
-                  </svg>
-               </button>
+            <br>
+            <div>
+               <label for="class">Course 2</label>
+               <input type="text" name="class" placeholder="Course" class="course">
+               <label for="grade">Grade</label>
+               <select class="grade" name="grade">
+                  <option value="4">A</option>
+                  <option value="3.7">A-</option>
+                  <option value="3.3">B+</option>
+                  <option value="3">B</option>
+                  <option value="2.7">B-</option>
+                  <option value="2.3">C+</option>
+                  <option value="2">C</option>
+                  <option value="1.7">C-</option>
+                  <option value="1.3">D+</option>
+                  <option value="1">D</option>
+                  <option value="0.7">D-</option>
+                  <option value="0">F</option>
+               </select>
+               <span>
+                  <label for="credits">Credits</label>
+                  <input type="text" name="credits" class="gpaCredits">
+               </span>
             </div>
-         </form>
-      </div>
-      <footer class="bg-primary-custom text-center text-white">
-         <div class="container p-4">
-            <!-- Section: Social media -->
-            <section class="mb-4">
-               <!-- linkedin -->
-               <a class="btn btn-outline-light btn-floating m-1" href="https://www.linkedin.com/company/ct-state/" target="_new" role="button">
+            <br>
+            <div>
+               <label for="class">Course 3</label>
+               <input type="text" name="class" placeholder="Course" class="course">
+               <label for="grade">Grade</label>
+               <select class="grade" name="grade">
+                  <option value="4">A</option>
+                  <option value="3.7">A-</option>
+                  <option value="3.3">B+</option>
+                  <option value="3">B</option>
+                  <option value="2.7">B-</option>
+                  <option value="2.3">C+</option>
+                  <option value="2">C</option>
+                  <option value="1.7">C-</option>
+                  <option value="1.3">D+</option>
+                  <option value="1">D</option>
+                  <option value="0.7">D-</option>
+                  <option value="0">F</option>
+               </select>
+               <span>
+                  <label for="credits">Credits</label>
+                  <input type="text" name="credits" class="gpaCredits">
+               </span>
+            </div>
+            <br>
+            <div>
+               <label for="class">Course 4</label>
+               <input type="text" name="class" placeholder="Course" class="course">
+               <label for="grade">Grade</label>
+               <select class="grade" name="grade">
+                  <option value="4">A</option>
+                  <option value="3.7">A-</option>
+                  <option value="3.3">B+</option>
+                  <option value="3">B</option>
+                  <option value="2.7">B-</option>
+                  <option value="2.3">C+</option>
+                  <option value="2">C</option>
+                  <option value="1.7">C-</option>
+                  <option value="1.3">D+</option>
+                  <option value="1">D</option>
+                  <option value="0.7">D-</option>
+                  <option value="0">F</option>
+               </select>
+               <span>
+                  <label for="credits">Credits</label>
+                  <input type="text" name="credits" class="gpaCredits">
+               </span>
+            </div>
+            <br>
+            <div>
+               <label for="class">Course 4</label>
+               <input type="text" name="class" placeholder="Course" class="course">
+               <label for="grade">Grade</label>
+               <select class="grade" name="grade">
+                  <option value="4">A</option>
+                  <option value="3.7">A-</option>
+                  <option value="3.3">B+</option>
+                  <option value="3">B</option>
+                  <option value="2.7">B-</option>
+                  <option value="2.3">C+</option>
+                  <option value="2">C</option>
+                  <option value="1.7">C-</option>
+                  <option value="1.3">D+</option>
+                  <option value="1">D</option>
+                  <option value="0.7">D-</option>
+                  <option value="0">F</option>
+               </select>
+               <span>
+                  <label for="credits">Credits</label>
+                  <input type="text" name="credits" class="gpaCredits">
+               </span>
+            </div>
+            <br>
+         </div>
+
+         <div align="center">
+            <button class="btn bg-primary-custom text-light btn-add-row">
+               Add class row
+               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                  class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                  <path
+                     d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
+               </svg>
+            </button>
+            <button class="btn bg-primary-custom text-light btn-add-row calculate" type="submit">
+               Calculate GPA
+               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                  class="bi bi-calculator-fill" viewBox="0 0 16 16">
+                  <path
+                     d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm2 .5v2a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 0-.5-.5h-7a.5.5 0 0 0-.5.5zm0 4v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5zM4.5 9a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zM4 12.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5zM7.5 6a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zM7 9.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5zm.5 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zM10 6.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5zm.5 2.5a.5.5 0 0 0-.5.5v4a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 0-.5-.5h-1z" />
+               </svg>
+            </button>
+         </div>
+      </form>
+   </div>
+
+   <footer class="bg-primary-custom text-center text-white">
+      <div class="container p-4">
+         <!-- Section: Social media -->
+         <section class="mb-4">
+            <!-- linkedin -->
+            <a class="btn btn-outline-light btn-floating m-1" href="https://www.linkedin.com/company/ct-state/" target="_new" role="button">
                <img src="images/linkedin.svg" alt="linkedin">
-               </a>
-               <!-- facebook -->
-               <a class="btn btn-outline-light btn-floating m-1" href="https://www.facebook.com/CTStateEdu/" target="_new" role="button">
+            </a>
+            <!-- facebook -->
+            <a class="btn btn-outline-light btn-floating m-1" href="https://www.facebook.com/CTStateEdu/" target="_new" role="button">
                <img src="images/facebook.svg" alt="Facebook">
-               </a>
-               <!-- Instagram -->
-               <a class="btn btn-outline-light btn-floating m-1" href="https://www.instagram.com/ctstateedu/?hl=en" target="_new" role="button">
+            </a>
+            <!-- Instagram -->
+            <a class="btn btn-outline-light btn-floating m-1" href="https://www.instagram.com/ctstateedu/?hl=en" target="_new" role="button">
                <img src="images/instagram.svg" alt="instagram">
-               </a>
-            </section>
-         </div>
-         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-            ©2023 Copyright: CT State Community College
-            <br />
-            Made by John Absolu and Wilkenson Hilarion
-         </div>
-      </footer>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-         crossorigin="anonymous"></script>
-      <script src="./Scripts/index.js"></script>
-      <script src="./Scripts/nav.js"></script>
-   </body>
+            </a>
+         </section>
+      </div>
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+         ©2023 Copyright: CT State Community College
+         <br />
+         Made by John Absolu and Wilkenson Hilarion
+      </div>
+   </footer>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"></script>
+   <script src="./Scripts/index.js"></script>
+   <script src="./Scripts/nav.js"></script>
+</body>
+
 </html>
