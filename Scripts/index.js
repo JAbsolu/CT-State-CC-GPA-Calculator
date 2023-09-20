@@ -19,11 +19,12 @@ document.addEventListener('DOMContentLoaded', function() {
         event.preventDefault();
     })
     // ADD NEW CLASS ROW
-    let rowCount = course.length + 1;
-    const addRow = document.querySelector('.btn-add-row');
+    let rowCount = course.length + 1; //The number of elements using the class course
+    const addRow = document.querySelector('.btn-add-row'); //get the button to add row
     const addClassRow = () => { 
-        const gpaFormDiv = document.querySelector('.gpaFormDiv');
-        const newRow = ` 
+        const gpaFormDiv = document.querySelector('.gpaFormDiv'); //get the div containing the form
+        // A variable holding the html to create a new row 
+        const newRow = `
         <div>
                <label for="class">Course ${rowCount}</label>
                <input type="text" name="class" placeholder="Course" class="course">
@@ -49,12 +50,12 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
             <br>
         `
-        rowCount += 1
-        gpaFormDiv.innerHTML += newRow
-
-        console.log("class row added")
+        rowCount += 1 // Add one to the text that count the number of courses listed
+        gpaFormDiv.innerHTML += newRow // Add the new row to as the last item int he container holding the form
+        // log this message in the console to confirm row was added
+        console.log("class row added") 
     }
-    addRow.addEventListener('click', addClassRow); 
+    addRow.addEventListener('click', addClassRow);  // listen for clicks on the add row btn
 
     // listen for clicks on the calculate button
     calculate.addEventListener('click', function(event) {
@@ -63,13 +64,14 @@ document.addEventListener('DOMContentLoaded', function() {
       // Input error control
       for (let i = course.length - 1; i >= 0; i-=1) {
         let credValue = creditsElements[i].value
-        course[i].value === "" || credValue === "" ?  
-        classError.classList.remove('d-none') //if both course and credits onpy empty show err msf
-        : classError.classList.add('d-none') //else hide error msg
+        course[i].value === "" || credValue === "" ?  // if course or credits is empty show err msf 
+        classError.classList.remove('d-none') : classError.classList.add('d-none') // else hide error msg
       }
-  
-      let enteredExistingCreds = existingCreds.value || 0; //check if there is value else defaul val is 0
+      
+      //check if there is value else defaul val is 0
+      let enteredExistingCreds = existingCreds.value || 0; 
       let enteredExistingGpa = existingGpa.value || 0;
+
       //get the total amount of points the student already has excluding current semester points
       let totalExistingPoints = parseFloat(enteredExistingCreds * enteredExistingGpa);
 
@@ -78,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
       // Iterate through the grade elements
       gradeElements.forEach(function(gradeElement, index) {
-        let gradeValue = parseFloat(gradeElement.value);
+        let gradeValue = parseFloat(gradeElement.value); 
         let creditsValue = parseFloat(creditsElements[index].value);
   
         if (!isNaN(gradeValue) && !isNaN(creditsValue)) {
