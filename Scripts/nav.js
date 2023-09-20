@@ -1,6 +1,10 @@
-const navMobile = document.querySelector(".mobile-show") // The nav menu to show
-const navBarToggler = document.querySelector(".navbar-toggler"); // Nav button to toggle the menu on mobile
+// The nav menu to show
+const navMobile = document.querySelector(".mobile-show") 
+// Nav button to toggle the menu on mobile
+const navBarToggler = document.querySelector(".navbar-toggler"); 
 
+// Add event listener to the toggler
 navBarToggler.addEventListener("click", function(){
-    navMobile.classList.toggle("d-block") // Show or hide mobile menu on click
+    // Show or hide mobile menu on click
+    navMobile.classList.toggle("d-block") 
 });
