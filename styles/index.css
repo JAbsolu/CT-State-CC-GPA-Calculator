@@ -16,6 +16,10 @@
     font-size: 0.99rem;
 }
 
+body {
+    min-height: 100vh;
+}
+
 .bg-primary-custom {
     background-color: var(--background) !important;
 }
