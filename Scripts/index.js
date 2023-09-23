@@ -10,6 +10,7 @@ const gpaScore = document.querySelector(".gpa-score");
 const enteredExistingCreds = document.getElementsByClassName("current-total-credits");
 const calculate = document.querySelector(".calculate");
 const classError = document.querySelector(".missing-class-error");
+let entriesOuput = document.querySelector(".entries-output");
 
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -88,14 +89,59 @@ document.addEventListener('DOMContentLoaded', function() {
           totalCredits += creditsValue;
         }
       });
-
-      //Check t0 see if GPA is a number, if not set new score to be 0.00
+      
       let newGPA = parseFloat(totalPoints / totalCredits).toFixed(2)
       if (!isNaN(newGPA)) {
         gpaScore.textContent = newGPA;
       } else {
         gpaScore.textContent = parseFloat(0).toFixed(2)
       }
+
+
+      /*
+        This block of code below display a paragraph that gives
+        a brief description of what the user entered in the form
+       */
+      let courseTaking = 0;
+      let courseStringFormat = ''
+      let gradeStringFormat = ''
+      let entryStringFormat = ''
+
+      for (let aCourse of course) {
+       if (aCourse.value !== "") {
+        courseTaking += 1;
+       }
+      }
+
+      if (courseTaking.length >= 1) {
+        courseStringFormat = "classes";
+        entryStringFormat ="entries";
+        gradeStringFormat ="grades";
+      } else {
+        courseStringFormat = "class";
+        entryStringFormat ="entry";
+        gradeStringFormat ="grade";
+      }
+
+      entriesOuput.textContent = (
+          `Based on your ${entryStringFormat} and the ${gradeStringFormat} you received for your 
+          ${courseTaking} entered ${courseStringFormat}, 
+          your GPA will be ${gpaScore.textContent}`
+      );
+
+      //get the entries output container
+      const entriesOutputContainer = document.querySelector(".entries-output-container");
+      entriesOutputContainer.classList.remove("d-none")
+      entriesOutputContainer.classList.add("d-block")
+
+      //clear the entries output text on click
+      const clearEntriesOutput = document.querySelector(".clear-entries-output");
+      clearEntriesOutput.addEventListener("click", function(){
+        entriesOutputContainer.classList.add("d-none");
+      })
+      //end
+      
+      //Check to see if GPA is a number, if not set new score to be 0.00
       //save the calculated gpa in local storage
       localStorage.setItem("Estimated GPA", gpaScore.textContent)
 

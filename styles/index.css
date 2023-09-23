@@ -16,10 +16,6 @@
     font-size: 0.99rem;
 }
 
-body {
-    min-height: 100vh;
-}
-
 .bg-primary-custom {
     background-color: var(--background) !important;
 }
@@ -86,7 +82,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 2rem 0 20.5rem;
+    padding: 2rem 0;
 }
 
 .main input, select {
@@ -106,6 +102,10 @@ body {
 .website-credits {
     margin-top: 0.5rem;
     font-size: 0.6rem;
+}
+
+footer {
+    margin-top: 8rem;
 }
 
 /* Super narrow screens */
@@ -130,6 +130,12 @@ body {
         min-width: 9.5rem;
     }
 
+}
+
+.entries-output {
+    background-color: var(--accent);
+    max-width: 45rem;
+    padding: 2rem;
 }
 
 /* FOR REGULAR MOBILE PHONES */
@@ -215,6 +221,6 @@ body {
     }
 
     .main {
-        padding-bottom: 19.5rem;
+        padding-bottom: 9.8rem;
     }
 }
