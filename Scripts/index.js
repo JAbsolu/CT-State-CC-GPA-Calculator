@@ -12,7 +12,7 @@ const calculate = document.querySelector(".calculate");
 const classError = document.querySelector(".missing-class-error");
 let entriesOuput = document.querySelector(".entries-output");
 
-
+ //save output to local storage for easy access until cleared
 document.addEventListener('DOMContentLoaded', function() {
     //PREVENT FORM FROM RELAODING
     const form = document.querySelector('#prevent-default');
@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function() {
        }
       }
 
-      if (courseTaking.length >= 1) {
+      if (courseTaking > 1) {
         courseStringFormat = "classes";
         entryStringFormat ="entries";
         gradeStringFormat ="grades";
@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
 
       entriesOuput.textContent = (
-          `Based on your ${entryStringFormat} and the ${gradeStringFormat} you received for your 
+          `Based on your most recent calculation, ${entryStringFormat} and the ${gradeStringFormat} you received for your 
           ${courseTaking} entered ${courseStringFormat}, 
           your GPA will be ${gpaScore.textContent}`
       );
@@ -139,6 +139,7 @@ document.addEventListener('DOMContentLoaded', function() {
       clearEntriesOutput.addEventListener("click", function(){
         entriesOutputContainer.classList.add("d-none");
       })
+
       //end
       
       //Check to see if GPA is a number, if not set new score to be 0.00
@@ -153,6 +154,7 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('No valid grades or credits provided.');
       }
     });
+
 
     //getting the gp
     let savedScore = localStorage.getItem('Estimated GPA');
