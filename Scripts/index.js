@@ -144,7 +144,12 @@ document.addEventListener('DOMContentLoaded', function() {
       
       //Check to see if GPA is a number, if not set new score to be 0.00
       //save the calculated gpa in local storage
-      localStorage.setItem("Estimated GPA", gpaScore.textContent)
+      if (gpaScore.textContent === ' ') {
+        localStorage.setItem("Estimated GPA", parseFloat(0).toFixed(2))
+      } else {
+        localStorage.setItem("Estimated GPA", gpaScore.textContent)
+      }
+      
 
       //test code below
       if (totalCredits > 0) {
@@ -159,7 +164,7 @@ document.addEventListener('DOMContentLoaded', function() {
     //getting the gp
     let savedScore = localStorage.getItem('Estimated GPA');
 
-    if (isNaN(savedScore)) {
+    if (!savedScore) {
       gpaScore.textContent = parseFloat(0).toFixed(2);
     } else {
       gpaScore.textContent = parseFloat(savedScore).toFixed(2);
