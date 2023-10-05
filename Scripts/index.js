@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const gpaFormDiv = document.querySelector('.gpaFormDiv'); //get the div containing the form
         // A variable holding the html to create a new row 
         const newRow = `
-        <div>
+            <div class="addCourseRow">
                <label for="class">Course ${rowCount}</label>
                <input type="text" name="class" placeholder="Course" class="course">
                <label for="grade">Grade</label>
